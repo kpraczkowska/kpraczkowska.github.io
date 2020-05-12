@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>L08 - Image textures and materials</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-asstes>
+            <img id="tekstury/metal-L08.jpg">
+        </a-asstes>
+
+        <!--Light Blue Box-->
+        <a-box color="#8EACBB"
+               width="4"
+               height="4"
+               depth="4"
+               position="-2 1.5 -9">
+        </a-box>
+
+        <!--Brown box-->
+        <a-box 
+               src="tekstury/metal-L08.jpg"
+               repeat="1 1"
+               width="4"
+               height="4"
+               depth="4"
+               position="2 1.5 -9">
+        </a-box>
+
+    </a-scene>
+</body>
+</html>
