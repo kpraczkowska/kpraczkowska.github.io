@@ -5,22 +5,32 @@
 </head>
 <body>
     <a-scene>
+
+        <!--Asset managment system-->
         <a-asstes>
-            <img id="tekstury/metal-L08.jpg">
+            <img id="metal" src="tekstury/metal.jpg">
+            <img id="metal2" src="tekstury/metal2.jpg">
+            <img id="brick" src="tekstury/brick.jpg">
+        
         </a-asstes>
 
-        <!--Light Blue Box-->
-        <a-box color="#8EACBB"
+        <!--Brown Box-->
+        <a-box src="#brick"
+               repeat="1 1"
                width="4"
                height="4"
                depth="4"
                position="-2 1.5 -9">
         </a-box>
 
-        <!--Brown box-->
+        <!--Blue box-->
         <a-box 
-               src="tekstury/metal-L08.jpg"
+               src="#metal"
                repeat="1 1"
+               normal-map="#metal2"
+               normal-texture-repeat="1 1"
+               normal scale="1 -1"
+               roughness="0.5"
                width="4"
                height="4"
                depth="4"
