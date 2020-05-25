@@ -17,14 +17,19 @@
         <!--Brown Box-->
         <a-box src="#brick"
                repeat="1 1"
+               normal-map="#brick"
+               normal-texture-repeat="2 2"
+               normal scale="1 -1"
+               roughness="0.9"
                width="4"
                height="4"
                depth="4"
-               position="-2 1.5 -9">
+               position="-2 1.5 -9"
+               scale="-1 1 1">
         </a-box>
 
         <!--Blue box-->
-        <a-box 
+        <a-box material="color=#FFFFFF"
                src="#metal"
                repeat="1 1"
                normal-map="#metal2"
@@ -34,8 +39,23 @@
                width="4"
                height="4"
                depth="4"
-               position="2 1.5 -9">
+               position="2 1.5 -9"
+               scale="-1 1 1">
         </a-box>
+
+        <!-- Blue Sphere-->
+        <a-sphere material="color: #blue;
+                            roughness: 0.2"
+                  radius="0.5"
+                  position="-2 2 -7">
+        </a-sphere>
+       
+        <!--Red sphere-->
+        <a-sphere material="color: #AA0000;
+                             roughness: 0.2"
+                  radius="0.5"
+                  position="2 2 -7">
+        </a-sphere>
 
     </a-scene>
 </body>
