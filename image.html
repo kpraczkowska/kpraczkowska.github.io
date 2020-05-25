@@ -14,8 +14,22 @@
             <img id="img3" src="image/img3.jpg">
         </a-asstes>
 
- 
-        
+        <!--Image Primitive | IMG size 1024x768px -->
+        <!--IMG width(px) = 1m-->
+        <!-- ? IMG height (m) = width (m)/IMG width (px) * IMG height (px)-->
+        <a-image src="#img1"
+                 position="0 1.5 -3"
+                 width="1"
+                 height="0.75"
+                 scale="3 3 1">
+        </a-image>
+
+        <!--Curved  Image Primitive |single img | img size 1024x768px -->
+        <a-curvedimage src="#img2"
+                       theta-length="270"
+                       radius="2">
+        </a-curvedimage>
+
     </a-scene>
 </body>
 </html>
