@@ -12,6 +12,9 @@
             <img id="img1" src="image/img1.jpg">
             <img id="img2" src="image/img2.jpg">
             <img id="img3" src="image/img3.jpg">
+            <img id="img4" src="image/img4.jpg">
+            <img id="img5" src="image/img5.jpg">
+         
         </a-asstes>
 
         <!--Image Primitive | IMG size 1024x768px -->
@@ -25,11 +28,65 @@
         </a-image>
 
         <!--Curved  Image Primitive |single img | img size 1024x768px -->
+        <!--? Radius of Arc -handymath.com - the complete circular arc calculator-->
+        <!--Width of Arc =1m-->
+        <!--length od arc - 1.111m -->
+        <!--Angle subtended by arc = 90 deg-->
+        <!--? img height (m) = width(m)/img width(px) * img height (px) -->
         <a-curvedimage src="#img2"
-                       theta-length="270"
-                       radius="2">
+                       theta-length="90"
+                       theta-start="135"
+                       radius="0.707"
+                       height="0.833"
+                       position= "0 1.5 0"
+                       scale="3 3 3">
         </a-curvedimage>
 
+        <!--width of arc reference-->
+        <a-box color="#AA0000"
+               opacity="0.5"
+               width="3"
+               height="0.1"
+               depth="3"
+               position="0 1.5 -1.5">
+        </a-box> 
+  
+        <!--Curved  Image Primitive | 3 img LAYOUT | img size 1024x768px -->
+        <!--? Radius of Arc -handymath.com - the complete circular arc calculator-->
+        <!--Width of Arc DIAMETER = 1m-->
+        <!--length of each img = 0.436 m -->
+        <!--Angle subtended by arc = 180 deg-->
+        <!-- Angle subtended by each img = 50 deg-->
+        <!--? img height (m) = width(m)/img width(px) * img height (px) -->
+        <!-- RIGHT IMG-->
+        <a-curvedimage src="#img3"
+                       theta-length="50"
+                       theta-start="90"
+                       radius="0.5"
+                       height="0.327"
+                       position= "0 1.5 0"
+                       scale="3 3 3">
+        </a-curvedimage>
+
+        <!-- CENTER IMG-->
+        <a-curvedimage src="#img4"
+                       theta-length="50"
+                       theta-start="155"
+                       radius="0.5"
+                       height="0.327"
+                       position= "0 1.5 0"
+                       scale="3 3 3">
+        </a-curvedimage>
+
+        <!-- LEFT IMG-->
+        <a-curvedimage src="#img5"
+                       theta-length="50"
+                       theta-start="220"
+                       radius="0.5"
+                       height="0.327"
+                       position= "0 1.5 0"
+                       scale="3 3 3">
+        </a-curvedimage>
     </a-scene>
 </body>
 </html>
