@@ -7,13 +7,17 @@
 <body>
     <a-scene>
         <a-assets>
-            <img id="ground" src="tekstury/ground.jpg">
-            <img id="ground2" src="tekstury/ground2.jpg">
+            <img id="img1" src="ground/img1.jpg">
+            <img id="img2" src="ground/img2.jpg">
         </a-assets>
 
         <!--ground-->
-        <a-plane src="#ground"
-                 roatation="-90 0 0"
+        <a-plane material="color:#999999;
+                          src:#img1;
+                          repeat: 5 5
+                          normal-map: #img2
+                          normal-texture-repeat: 5 5"
+                 rotation="-90 0 0"
                  scale="10 10 1">    
         </a-plane>
     
