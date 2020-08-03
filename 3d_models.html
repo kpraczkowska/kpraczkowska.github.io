@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>L14 - loading and displaying 3d models</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="sky4" src="ground/sky4.jpg">
+            <a-asset-item id="village" src="3d_models/scene.gltf"></a-asset-item>
+            <a-asset-item id="catapult-o" src="3d_models/Catapult.obj"></a-asset-item>
+            <a-asset-item id="catapult-m" src="3d_models/Catapult.mtl"></a-asset-item>
+        </a-assets>
+
+        <!-- sky -->
+        <a-sky src="#sky4"
+               rotation="0 10 0">
+        </a-sky>
+
+        <!--Camera-->
+        <a-entity position="-3 0 50">
+        <a-camera></a-camera>
+        </a-entity>
+
+        <!-- castle village -->
+        <a-entity gltf-model="#village">
+        </a-entity>
+
+        <!--Catapult-->
+        <a-entity obj-model="obj:#catapult-o; mtl:#catapult-m"
+                  position="0 0 50">
+        </a-entity>
+
+    </a-scene>
+</body>
+</html>
