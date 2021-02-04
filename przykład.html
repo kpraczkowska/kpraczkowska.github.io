@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Przykładowy kod</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-asstes>
+            <img id="brick" src="tekstury/brick.jpg">
+        </a-asstes>
+        <!--Brown Box-->
+        <a-box src="#brick"
+               repeat="1 1"
+               normal-map="#brick2"
+               normal-texture-repeat="2 2"
+               normal scale="1 -1"
+               roughness="0.9"
+               width="8"
+               height="8"
+               depth="8"
+               position="-2 1.5 -9"
+               scale="-1 1 1">
+        </a-box>     
+        <!-- Blue Sphere-->
+        <a-sphere material="color:#AA0000;
+                            roughness: 0.2"
+                  radius="0.5"
+                  position="-2 2 -5">
+        </a-sphere>
+        <!-- Camera + cursor. -->
+        <a-entity camera look-controls>
+            <a-camera>
+                <a-cursor
+                id="cursor"
+                animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+                animation__fusing="property: scale; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 150; easing: easeInCubic" 
+                event-set__mouseenter="_event: mouseenter; color: springgreen"
+                event-set__mouseleave="_event: mouseleave; color: black"
+                raycaster="objects: .link">
+                </a-cursor>
+            </a-camera>
+        </a-entity>
+    </a-scene>
+</body>
+</html>

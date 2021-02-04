@@ -13,7 +13,7 @@
     <!-- Image link template to be reused. -->
     <script id="link" type="text/html">
       <a-entity class="link"
-        geometry="primitive: plane; height: 1.5; width:2"
+        geometry="primitive: plane; height: 2; width:3"
         material="shader: flat; src: ${thumb}"
         event-set__mouseenter="scale: 1.2 1.2 1"
         event-set__mouseleave="scale: 1 1 1"
@@ -56,48 +56,64 @@
         <img id="poczta-thumb" crossorigin="anonymous" src="miniatury/poczta.jpg">
         <img id="bulwary" crossorigin="anonymous" src="zdj/bulwary.JPG">
         <img id="bulwary-thumb" crossorigin="anonymous" src="miniatury/bulwary.JPG">
+        <img id="katedra" crossorigin="anonymous" src="zdj/katedra.JPG">
+        <img id="katedra-thumb" crossorigin="anonymous" src="miniatury/katedra.JPG">
+        <img id="ratusz" crossorigin="anonymous" src="zdj/ratusz.JPG">
+        <img id="ratusz-thumb" crossorigin="anonymous" src="miniatury/ratusz.JPG">
 
 
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
       </a-assets>
+      
 
       <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#niebo"
+      <a-sky id="image-360" radius="80" src="#niebo"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
+      </a-sky>
 
       <!-- Image links. -->
-      <a-entity id="links" layout="type: line; margin: 3" position="-4 -1 -6">
+     
+      <a-entity id="links" layout="type: line; margin: 3.5" position="-15 5 -10">
         <a-entity template="src: #link" data-src="#waly" data-thumb="#waly-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#am" data-thumb="#am-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#katedra" data-thumb="#katedra-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#filharmonia" data-thumb="#filharmonia-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#urzad" data-thumb="#urzad-thumb"></a-entity>
       </a-entity>
 
-    <a-entity id="links" layout="type: line; margin: 3" position="-4.5 -3 -6">
-      <a-entity template="src: #link" data-src="#bPortowa" data-thumb="#bPortowa-thumb"></a-entity>
-      <a-entity template="src: #link" data-src="#dworzec" data-thumb="#dworzec-thumb"></a-entity>
-      <a-entity template="src: #link" data-src="#fontanna" data-thumb="#fontanna-thumb"></a-entity>
-      <a-entity template="src: #link" data-src="#JasneBlonia" data-thumb="#JasneBlonia-thumb"></a-entity>
-    </a-entity>
+      <a-entity id="links" layout="type: line; margin: 3.5" position="-15 8 -10">
+        <a-entity template="src: #link" data-src="#bPortowa" data-thumb="#bPortowa-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#dworzec" data-thumb="#dworzec-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#fontanna" data-thumb="#fontanna-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#ratusz" data-thumb="#ratusz-thumb"></a-entity>
+      </a-entity>
 
-    <a-entity id="links" layout="type: line; margin: 3" position="-4 2 -6">
-      <a-entity template="src: #link" data-src="#kWojciecha" data-thumb="#kWojciecha-thumb"></a-entity>
-      <a-entity template="src: #link" data-src="#komenda" data-thumb="#komenda-thumb"></a-entity>
-      <a-entity template="src: #link" data-src="#kotwica" data-thumb="#kotwica-thumb"></a-entity>
-      <a-entity template="src: #link" data-src="#ksiaznica" data-thumb="#ksiaznica-thumb"></a-entity>
-    </a-entity>
+      <a-entity id="links" layout="type: line; margin: 3.5" position="-15 2 -10">
+        <a-entity template="src: #link" data-src="#kWojciecha" data-thumb="#kWojciecha-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#komenda" data-thumb="#komenda-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#kotwica" data-thumb="#kotwica-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#poczta" data-thumb="#poczta-thumb"></a-entity>
+      </a-entity>
+     
+      <a-box>
+        
+      </a-box>
 
-    
+      <!-- Link template -->
+      <a-entity class="link"></a-entity>
+      
       <!-- Camera + cursor. -->
       <a-entity camera look-controls>
+        <a-camera>
         <a-cursor
           id="cursor"
           animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          animation__fusing="property: scale; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 150; easing: easeInCubic"
           event-set__mouseenter="_event: mouseenter; color: springgreen"
           event-set__mouseleave="_event: mouseleave; color: black"
-          raycaster="objects: .link"></a-cursor>
+          raycaster="objects: .link">
+        </a-cursor>
+        </a-camera>
       </a-entity>
     </a-scene>
   </body>
