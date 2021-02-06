@@ -9,8 +9,6 @@
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/index.min.js"></script>
-
     
     <!-- Image link template to be reused. -->
     <script id="link" type="text/html">
@@ -76,17 +74,24 @@
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
       </a-sky>
 
-      <a-entity geometry="primitive:box" height="2" weight="2" depth="2" material="color:red" position="-15 -2 -7" 
-                event-set__up="_event:click; _target: #jeden; animation.property: position; animation.to: 1 1000 -3">
-      </a-entity>
-      <a-entity geometry="primitive:box" height="2" weight="2" depth="2" material="color:blue" position="-12 -2 -7" 
-                event-set__up="_event:click; _target: #jeden; animation.property: position; animation.to: -15 5 -10">
-      </a-entity>   
+      <a-box id="red" height="2" weight="2" depth="2" color="red" position="-15 -2 -7" event-set__tarvis="_event: click; _target: #blue; visible: true"></a-box>
+
 
       <!-- Image links. -->
       <a-entity id="links" layout="type: line; margin: 3.5" position="-15 5 -10">
-        <a-entity id="jeden" template="src: #link" data-src="#waly" data-thumb="#waly-thumb"
-                 ></a-entity>
+        <a-entity id="waly" template="src: #link" data-src="#waly" data-thumb="#waly-thumb" visible="false" 
+                  event-set__resvis="_event: click; visible: false" >
+            <a-box id="box" height="1.5" color="red" position="2 2 2"
+                   event-set__enter="_event:mouseenter" _target=#waly_text visible="true"
+                   event-set__leave="_event:mouseleave" _target=#waly_text visible="false">
+    
+              <a-text id="waly_text" value="wały Chrobrego" visible="false" geometry="primitive: plane" width="2" >
+              </a-text>
+
+            </a-box>
+        </a-entity>
+  
+
         <a-entity template="src: #link" data-src="#katedra" data-thumb="#katedra-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#filharmonia" data-thumb="#filharmonia-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#urzad" data-thumb="#urzad-thumb"></a-entity>
@@ -120,7 +125,7 @@
           animation__fusing="property: scale; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 150; easing: easeInCubic"
           event-set__mouseenter="_event: mouseenter; color: springgreen"
           event-set__mouseleave="_event: mouseleave; color: black"
-          >
+          raycaster="objects: .link">
         </a-cursor>
         </a-camera>
       </a-entity>

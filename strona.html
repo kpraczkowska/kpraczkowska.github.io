@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>strona główna</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    </head>
+
+<body align="center">
+ <a-scene>   
+    <input type="button" value="angielski" src="gallery.html">
+    <input type="button" value="polski">
+    <input type="button" value="niemiecki">
+
+
+
+      <!-- Camera + cursor. -->
+      <a-entity camera look-controls>
+        <a-camera>
+        <a-cursor
+          id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: scale; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 150; easing: easeInCubic"
+          event-set__mouseenter="_event: mouseenter; color: springgreen"
+          event-set__mouseleave="_event: mouseleave; color: black"
+          raycaster="objects: .link">
+        </a-cursor>
+        </a-camera>
+      </a-entity>
+
+</a-scene>        
+</body>
+</html>
