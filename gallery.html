@@ -77,17 +77,17 @@
       </a-sky>
 
       <a-box height="2" weight="2" depth="2" material="color:red" position="-15 -2 -7" 
-                event-set__up="_event:click; _target: #jeden; animation.property: position; animation.to: 1 1000 -3">
+                event-set__up="_event:click; _target: #images; animation.property: position; animation.to: 1 1000 -3">
       </a-box>
 
       <a-box height="2" weight="2" depth="2" material="color:blue" position="-12 -2 -7" 
-                event-set__up="_event:click; _target: #jeden; animation.property: position; animation.to: -15 5 -10">
+                event-set__up="_event:click; _target: #images; animation.property: position; animation.to: 0 0 0">
       </a-box>   
 
       <!-- Image links. -->
+      <a-entity id="images">
       <a-entity id="links" layout="type: line; margin: 3.5" position="-15 5 -10">
-        <a-entity id="jeden" template="src: #link" data-src="#waly" data-thumb="#waly-thumb"
-                 ></a-entity>
+        <a-entity template="src: #link" data-src="#waly" data-thumb="#waly-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#katedra" data-thumb="#katedra-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#filharmonia" data-thumb="#filharmonia-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#urzad" data-thumb="#urzad-thumb"></a-entity>
@@ -106,7 +106,7 @@
         <a-entity template="src: #link" data-src="#kotwica" data-thumb="#kotwica-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#poczta" data-thumb="#poczta-thumb"></a-entity>
       </a-entity>
-  
+    </a-entity>
       
 
       <!-- Link template -->
