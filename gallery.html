@@ -76,12 +76,13 @@
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
       </a-sky>
 
-      <a-entity geometry="primitive:box" height="2" weight="2" depth="2" material="color:red" position="-15 -2 -7" 
+      <a-box height="2" weight="2" depth="2" material="color:red" position="-15 -2 -7" 
                 event-set__up="_event:click; _target: #jeden; animation.property: position; animation.to: 1 1000 -3">
-      </a-entity>
-      <a-entity geometry="primitive:box" height="2" weight="2" depth="2" material="color:blue" position="-12 -2 -7" 
+      </a-box>
+
+      <a-box height="2" weight="2" depth="2" material="color:blue" position="-12 -2 -7" 
                 event-set__up="_event:click; _target: #jeden; animation.property: position; animation.to: -15 5 -10">
-      </a-entity>   
+      </a-box>   
 
       <!-- Image links. -->
       <a-entity id="links" layout="type: line; margin: 3.5" position="-15 5 -10">
