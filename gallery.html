@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/index.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
 
     
     <!-- Image link template to be reused. -->
@@ -70,61 +71,62 @@
       </a-assets>
       
 
+
       <!-- 360-degree image. -->
       <a-sky id="image-360" radius="80" src="#niebo"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
       </a-sky>
 
-      <a-box height="2" weight="2" depth="2" material="color:red" position="-15 -2 -7" 
+      <a-entity geometry="primitive:plane; height:1; width:1.5" material="color:red" position="0 5 -5" 
+                text__button_up="align: center; baseline:center; value: hide images; wrapCount: 10; font:dejavu"
                 event-set__up="_event:click; _target: #images; animation.property: position; animation.to: 1 1000 -3">
-      </a-box>
+      </a-entity>
 
-      <a-box height="2" weight="2" depth="2" material="color:blue" position="-12 -2 -7" 
-                event-set__up="_event:click; _target: #images; animation.property: position; animation.to: 0 0 0">
-      </a-box>   
+      <a-entity geometry="primitive:circle; radius:0.5" material="color:blue" position="1.5 5 -5" 
+                text__button_down="align: center; baseline:center; value: show images; wrapCount: 7; font:dejavu"
+                event-set__down="_event:click; _target: #images; animation.property: position; animation.to: 0 0 0">
+      </a-entity>   
 
       <!-- Image links. -->
       <a-entity id="images">
-      <a-entity id="links" layout="type: line; margin: 3.5" position="-15 5 -10">
-        <a-entity template="src: #link" data-src="#waly" data-thumb="#waly-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#katedra" data-thumb="#katedra-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#filharmonia" data-thumb="#filharmonia-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#urzad" data-thumb="#urzad-thumb"></a-entity>
-      </a-entity>
+        <a-entity id="links" layout="type: line; margin: 3.5" position="-15 5 -10">
+          <a-entity template="src: #link" data-src="#waly" data-thumb="#waly-thumb"></a-entity>
+          <a-entity template="src: #link" data-src="#katedra" data-thumb="#katedra-thumb"></a-entity>
+          <a-entity template="src: #link" data-src="#filharmonia" data-thumb="#filharmonia-thumb"></a-entity>
+          <a-entity template="src: #link" data-src="#urzad" data-thumb="#urzad-thumb"></a-entity>
+        </a-entity>
 
-      <a-entity id="links" layout="type: line; margin: 3.5" position="-15 8 -10">
-        <a-entity template="src: #link" data-src="#bPortowa" data-thumb="#bPortowa-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#dworzec" data-thumb="#dworzec-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#fontanna" data-thumb="#fontanna-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#ratusz" data-thumb="#ratusz-thumb"></a-entity>
-      </a-entity>
+        <a-entity id="links" layout="type: line; margin: 3.5" position="-15 8 -10">
+          <a-entity template="src: #link" data-src="#bPortowa" data-thumb="#bPortowa-thumb"></a-entity>
+          <a-entity template="src: #link" data-src="#dworzec" data-thumb="#dworzec-thumb"></a-entity>
+          <a-entity template="src: #link" data-src="#fontanna" data-thumb="#fontanna-thumb"></a-entity>
+          <a-entity template="src: #link" data-src="#ratusz" data-thumb="#ratusz-thumb"></a-entity>
+        </a-entity>
 
-      <a-entity id="links" layout="type: line; margin: 3.5" position="-15 2 -10">
-        <a-entity template="src: #link" data-src="#kWojciecha" data-thumb="#kWojciecha-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#komenda" data-thumb="#komenda-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#kotwica" data-thumb="#kotwica-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#poczta" data-thumb="#poczta-thumb"></a-entity>
+        <a-entity id="links" layout="type: line; margin: 3.5" position="-15 2 -10">
+          <a-entity template="src: #link" data-src="#kWojciecha" data-thumb="#kWojciecha-thumb"></a-entity>
+          <a-entity template="src: #link" data-src="#komenda" data-thumb="#komenda-thumb"></a-entity>
+          <a-entity template="src: #link" data-src="#kotwica" data-thumb="#kotwica-thumb"></a-entity>
+          <a-entity template="src: #link" data-src="#poczta" data-thumb="#poczta-thumb"></a-entity>
+        </a-entity>
       </a-entity>
-    </a-entity>
       
 
       <!-- Link template -->
       <a-entity class="link"></a-entity>
       
+
       <!-- Camera + cursor. -->
-      <a-entity camera look-controls>
         <a-camera>
-        <a-cursor
+          <a-cursor
           id="cursor"
           animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
           animation__fusing="property: scale; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 150; easing: easeInCubic"
           event-set__mouseenter="_event: mouseenter; color: springgreen"
-          event-set__mouseleave="_event: mouseleave; color: black"
-          >
-        </a-cursor>
+          event-set__mouseleave="_event: mouseleave; color: black">
+          </a-cursor>
         </a-camera>
-      </a-entity>
     </a-scene>
   </body>
 </html>
