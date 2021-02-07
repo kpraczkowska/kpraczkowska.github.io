@@ -80,31 +80,33 @@
 
       <a-entity geometry="primitive:plane; height:1; width:1.5" material="color:red" position="0 5 -5" 
                 text__button_up="align: center; baseline:center; value: hide images; wrapCount: 10; font:dejavu"
-                event-set__up="_event:click; _target: #images; animation.property: position; animation.to: 1 1000 -3">
+                event-set__up="_event:click; _target: #images; animation.property: position; animation.to: 1 1000 -3"
+                look-at="#cam">
       </a-entity>
 
       <a-entity geometry="primitive:circle; radius:0.5" material="color:blue" position="1.5 5 -5" 
                 text__button_down="align: center; baseline:center; value: show images; wrapCount: 7; font:dejavu"
-                event-set__down="_event:click; _target: #images; animation.property: position; animation.to: 0 0 0">
+                event-set__down="_event:click; _target: #images; animation.property: position; animation.to: 0 0 0"
+                look-at="#cam">
       </a-entity>   
 
       <!-- Image links. -->
-      <a-entity id="images">
-        <a-entity id="links" layout="type: line; margin: 3.5" position="-15 5 -10">
+      <a-entity id="images" look-at>
+        <a-entity id="links" layout="type: line; margin: 3.5" position="-15 5 -10" look-at="#cam">
           <a-entity template="src: #link" data-src="#waly" data-thumb="#waly-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#katedra" data-thumb="#katedra-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#filharmonia" data-thumb="#filharmonia-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#urzad" data-thumb="#urzad-thumb"></a-entity>
         </a-entity>
 
-        <a-entity id="links" layout="type: line; margin: 3.5" position="-15 8 -10">
+        <a-entity id="links" layout="type: line; margin: 3.5" position="-15 8 -10" look-at="#cam">
           <a-entity template="src: #link" data-src="#bPortowa" data-thumb="#bPortowa-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#dworzec" data-thumb="#dworzec-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#fontanna" data-thumb="#fontanna-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#ratusz" data-thumb="#ratusz-thumb"></a-entity>
         </a-entity>
 
-        <a-entity id="links" layout="type: line; margin: 3.5" position="-15 2 -10">
+        <a-entity id="links" layout="type: line; margin: 3.5" position="-15 2 -10" look-at="#cam">
           <a-entity template="src: #link" data-src="#kWojciecha" data-thumb="#kWojciecha-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#komenda" data-thumb="#komenda-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#kotwica" data-thumb="#kotwica-thumb"></a-entity>
@@ -116,9 +118,12 @@
       <!-- Link template -->
       <a-entity class="link"></a-entity>
       
-
+      
+      <!-- Dlaczego zdjęcia są przekrzywione względem kamery?-->
+      
       <!-- Camera + cursor. -->
-        <a-camera>
+        <a-entity>
+          <a-camera id="cam">
           <a-cursor
           id="cursor"
           animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
@@ -126,7 +131,8 @@
           event-set__mouseenter="_event: mouseenter; color: springgreen"
           event-set__mouseleave="_event: mouseleave; color: black">
           </a-cursor>
-        </a-camera>
+          </a-camera>
+        </a-entity>
     </a-scene>
   </body>
 </html>
