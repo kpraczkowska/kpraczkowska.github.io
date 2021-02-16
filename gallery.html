@@ -59,8 +59,6 @@
         <img id="plOrla-thumb" crossorigin="anonymous" src="miniatury/plOrla2.jpg">
         <img id="poczta" crossorigin="anonymous" src="zdj/poczta.JPG">
         <img id="poczta-thumb" crossorigin="anonymous" src="miniatury/poczta.jpg">
-        <img id="bulwary" crossorigin="anonymous" src="zdj/bulwary.JPG">
-        <img id="bulwary-thumb" crossorigin="anonymous" src="miniatury/bulwary.JPG">
         <img id="katedra" crossorigin="anonymous" src="zdj/katedra.JPG">
         <img id="katedra-thumb" crossorigin="anonymous" src="miniatury/katedra.JPG">
         <img id="ratusz" crossorigin="anonymous" src="zdj/ratusz.JPG">
@@ -93,7 +91,20 @@
       <!-- Image links. -->
       <a-entity id="images" look-at>
         <a-entity id="links" layout="type: line; margin: 3.5" position="-15 5 -10" look-at="#cam">
-          <a-entity template="src: #link" data-src="#waly" data-thumb="#waly-thumb"></a-entity>
+          <a-entity template="src: #link" data-src="#waly" data-thumb="#waly-thumb"
+                   event-set__enter="_event: mouseenter; _target: #cylinderText; visible: true"
+                   event-set__leave="_event: mouseleave; _target: #cylinderText; visible: false">
+          </a-entity>
+          <a-sphere position="1 1 -6" radius="0.5" height="1.5" color="#FFC65D"></a-sphere>
+                     
+              <a-text id="cylinderText" value="Siedziba Muzeum Historii Szczecina jest gotycki Ratusz Staromiejski na Podzamczu, usytuowany w centrum najstarszej części miasta – pomiędzy Rynkiem Siennym i Rynkiem Nowym. Budynek, którego początki sięgają połowy XIII wieku, uzyskał gotycką formę z podcieniem i efektownymi szczytami oraz okazałą piwnicą z pięknymi sklepieniami gwiaździstymi na przełomie XIV i XV stulecia dzięki przebudowie przypisywanej Heinrichowi Brunsbergowi.
+              Po zrujnowaniu podczas ostrzeliwania miasta w okresie szwedzkim, przebudowano go w początku XVIII wieku w stylu barokowym, nadając skromny wygląd z wolutową dekoracją szczytów. Do 1879 roku służył jako siedziba władz miejskich.
+  
+              zrodlo: https://muzeum.szczecin.pl/o-muzeum/siedziby/muzeum-narodowe-w-szczecinie-muzeum-historii-szczecina.html" 
+              align="center" color="#66ccff" visible="false" position="0 -0.55 0.55"  font="dejavu" width="4"
+              geometry="primitive: plane; width: 5; height:5" material="color: #212121">
+              </a-text>
+            </a-sphere>
           <a-entity template="src: #link" data-src="#katedra" data-thumb="#katedra-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#filharmonia" data-thumb="#filharmonia-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#urzad" data-thumb="#urzad-thumb"></a-entity>
@@ -120,10 +131,15 @@
       
       
       <!-- Dlaczego zdjęcia są przekrzywione względem kamery?-->
-      
+
       <!-- Camera + cursor. -->
         <a-entity>
           <a-camera id="cam">
+            <a-entity geometry="primitive:plane; height:1; width:1.5" material="color:red" position="0 5 -5" 
+                text__button_up="align: center; baseline:center; value: hide images; wrapCount: 10; font:dejavu"
+                event-set__up="_event:click; _target: #images; animation.property: position; animation.to: 1 1000 -3"
+                look-at="#cam">
+            </a-entity>
           <a-cursor
           id="cursor"
           animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
