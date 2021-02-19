@@ -28,6 +28,8 @@
 <body>
   <a-scene>
     <a-assets>
+      <img id="most2" crossorigin="anonymous" src="zdj/most2.JPG">
+      <img id="szczecin" crossorigin="anonymous" src="ground/szczecin.jpg">
       <img id="niebo" crossorigin="anonymous" src="ground/sky.jpg">
       <img id="am" crossorigin="anonymous" src="zdj/am.JPG">
       <img id="am-thumb" crossorigin="anonymous" src="miniatury/am.JPG">
@@ -82,7 +84,7 @@
       <a-entity id="ctlR" raycaster="objects: .clickable; far:1.5;" laser-controls="hand: right"></a-entity>
 
       <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="80" src="#niebo"
+      <a-sky id="szczecin" radius="160" src="#most2"
         animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
         animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
       </a-sky>
