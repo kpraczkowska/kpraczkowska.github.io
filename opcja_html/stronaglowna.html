@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>360&deg; Image Gallery</title>
   <meta name="description" content="360&deg; Image Gallery - A-Frame">
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
   <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
   <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
@@ -23,12 +23,30 @@
     </a-entity>
   </script>
 
+
+  <script>
+    AFRAME.registerComponent('link', {
+    schema: {default: ''},
+  
+   
+  
+    init: function () {
+      var url = this.data;
+      this.el.addEventListener('click', function () {
+      window.location.href = url;
+   });
+  }
+  });
+  </script>
+  
+   
+  
 </head>
 
 <body>
   <a-scene>
     <a-assets>
-      <img id="most2" crossorigin="anonymous" src="zdj/most2.jpg">
+      <img id="most3" crossorigin="anonymous" src="zdj/most3.jpg">
       <audio id="click-sound" crossorigin="anonymous"
         src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
     </a-assets>
@@ -46,7 +64,7 @@
       <a-entity id="ctlR" raycaster="objects: .clickable; far:1.5;" laser-controls="hand: right"></a-entity>
 
       <!-- 360-degree image. -->
-      <a-sky id="szczecin" radius="360" src="#most2"
+      <a-sky id="szczecin" radius="360" src="#most3"
         animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
         animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"
         rotation="0 90 0">
@@ -54,21 +72,17 @@
       </a-sky>
 
       <a-entity position="0 2 -1"
-      text="value:Witamy na wirtualnym spacerze po Szczecinie; color: red; align:center; font:dejavu" geometry="primitive: plane; width: 2; height: auto" material="color:red; visible: false"
+      text="value:Witamy na wirtualnym spacerze po Szczecinie; color: red; align:center; font:dejavu" geometry="primitive: plane; width: 2; height: auto" material="color:red; visible: false"></a-entity>
+<!--
+      <button onclick="document.location='strona2.html'">Start</button>
+-->
       
-      event-set__enter="_event: mouseenter; text.color: blue"
-      event-set__leave="_event: mouseleave; text.color: green">
-      </a-entity>
-
       <a-entity geometry="primitive:circle; radius:0.15" material="color:red" position="0 1.7 -1"
         text__start="align: center; baseline:center; value: start; font:dejavu; wrapCount:20"
         class="clickable" 
-        event-set__link="_event:click; _target:#strona2">
-            <a-entity id=strona2 link="href:https://www.google.com">
-
-            </a-entity>
+        link="https://kpraczkowska.github.io/opcja_html/strona2.html">
       </a-entity>
-
+    
     </a-entity>
 
   </a-scene>
