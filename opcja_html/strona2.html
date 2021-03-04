@@ -23,6 +23,24 @@
     </a-entity>
   </script>
 
+
+  <script>
+    AFRAME.registerComponent('link', {
+    schema: {default: ''},
+  
+   
+  
+    init: function () {
+      var url = this.data;
+      this.el.addEventListener('click', function () {
+      window.location.href = url;
+   });
+  }
+  });
+  </script>
+  
+   
+  
 </head>
 
 <body>
@@ -82,7 +100,7 @@
       <a-entity id="ctlR" raycaster="objects: .clickable; far:1.5;" laser-controls="hand: right"></a-entity>
 
       <!-- 360-degree image. -->
-      <a-sky id="szczecin" radius="160" src="#most3"
+      <a-sky id="szczecin" radius="160" src="zdj/most3.jpg"
         animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
         animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
       </a-sky>
@@ -101,7 +119,8 @@
 
       <!-- Image links. -->
       <a-entity id="images">
-        <a-entity id="links" layout="type: line; margin: 3.5" position="-15 5 -10">
+        <a-entity id="links" layout="type: line; margin: 3.5" position="-15 5 -10" class="clickable" 
+        link="https://kpraczkowska.github.io/opcja_html/waly.html">
           <a-entity template="src: #link" data-src="#waly" data-thumb="#waly-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#katedra" data-thumb="#katedra-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#filharmonia" data-thumb="#filharmonia-thumb"></a-entity>
