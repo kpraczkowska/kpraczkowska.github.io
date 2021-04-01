@@ -3,27 +3,50 @@
 const photos = document.querySelectorAll('.photo');
 const backgroundPhoto = document.getElementById('image-360');
 const descriptionButton = document.querySelector('.description');
+const text = document.querySelector('.text');
 
 // funkcja zmieniająca tło i pozycję przycisku description po kliknięciu w miniaturę zdjęcia
 
+let isVisible = false;
+let textValue = '';
+
 photos.forEach(photo => photo.addEventListener('click', () => {
+  const imageSrc = photo.dataset.src;
   descriptionButton.setAttribute('material', 'color: black; visible: true');
-  imageSrc = photo.dataset.src;
   backgroundPhoto.setAttribute('src', imageSrc);
   configArray.forEach(item => {
     if (item.background === imageSrc) {
-      descriptionButton.setAttribute('position', item.position);
+      descriptionButton.setAttribute('position', item.buttonPosition);
       descriptionButton.setAttribute('rotation', item.rotation);
+      text.setAttribute('position', item.textPosition);
+      textValue = `value: ${item.content}; wrapCount: 60; font:dejavu; color: black; anchor: center; lineHeight: auto;`
+      text.setAttribute('rotation', item.rotation);
     }
   });
 }))
+
+descriptionButton.addEventListener('click', () => {
+  const visible = 'color: red; visible: true';
+  const invisible = 'color: white; visible: false';
+  material = text.getAttribute('material');
+  if (isVisible) {
+    text.setAttribute('material', invisible)
+    text.setAttribute('text', 'value: ;');
+    isVisible = false;
+  } else {
+    text.setAttribute('material', visible);
+    text.setAttribute('text', textValue);
+    isVisible = true;
+  };
+});
 
 // dane na temat obiektów do opisania
 
 const configArray = [
   {
     background: '#waly',
-    position: '20 9 -1',
+    buttonPosition: '20 9 -1',
+    textPosition: '20 9 8',
     rotation: '0 270 0',
     content: `The National Museum in Szczecin is currently the largest cultural institution in the West Pomeranian Voivodeship. It is a classic multi-departmental museum.
     The National Museum building occupies a central place in the Waly Chrobrego complex. Built between 1907-1913 according to the design of Wilhelm Meyer Schwartau, since 1913 the City Museum has been located there. In 1950, part of the museum building on Waly Chrobrego was temporarily adapted for the needs of the performing arts. The resulting place was named the Contemporary Theatre, which became part of the State Dramatic Theatres in Szczecin. In 1975, a decision was made to create two separate theaters in the city.
@@ -33,7 +56,8 @@ const configArray = [
   },
   {
     background: '#katedra',
-    position: '-10 6 0',
+    buttonPosition: '-10 6 0',
+    textPosition: '-10 6 0',
     rotation: '0 90 0',
     content: `Szczecin Cathedral (or The Cathedral Basilica of St James the Apostle) in Szczecin (Polish: Bazylika archikatedralna św. Jakuba w Szczecinie, German: Jakobskathedrale or also Jakobikirche Stettin) - was built by the citizens of the city and modeled after the Church of St Mary in Lübeck. It is the largest church in Pomerania and for many years after the reformation was part of the Pomeranian Evangelical Church, but since World War II and the handing over of Stettin (name of the city in German language) from Germany to Poland it has been rebuilt as a Roman Catholic cathedral.
 
@@ -41,7 +65,8 @@ const configArray = [
   },
   {
     background: '#filharmonia',
-    position: '-9 4 2',
+    buttonPosition: '-9 4 2',
+    textPosition: '-9 4 2',
     rotation: '0 90 0',
     content: `Post Office no. 2 - the Polish Post Office in Szczecin, located at Dworcowa Street in the New Town.
 
@@ -51,7 +76,8 @@ const configArray = [
   },
   {
     background: '#urzad',
-    position: '-12 7 -1',
+    buttonPosition: '-12 7 -1',
+    textPosition: '-12 7 -1',
     rotation: '0 90 0',
     content: `The town hall building was constructed to house the main administrative office of the Pomeranian Voivodeship (Landeshaus). In the years 1933-1945 it was the seat of the Nazi NSDAP authorities. Between 1945-1950 it was the seat of the Town Board and the Town National Council, 1950-1973 - the seat of the Presidium of the Town National Council, 1973-1990 - the seat of the Town Office and the Town National Council, since 1990 - the seat of the Szczecin City Council.
 
@@ -59,7 +85,8 @@ const configArray = [
   },
   {
     background: '#bPortowa',
-    position: '10 4.5 -0.4',
+    buttonPosition: '10 4.5 -0.4',
+    textPosition: '10 4.5 -0.4',
     rotation: '0 270 0',
     content: `Port Gate, German hist. Berliner Tor (Berlin Gate) - one of the city gates of Szczecin, built in Baroque style between 1725-1727 according to the design of Dutch fortification designer Gerhard Cornelius van Wallrawe (author of the reconstruction of the Kłodzko and Magdeburg Fortresses).
 
@@ -67,7 +94,8 @@ const configArray = [
   },
   {
     background: '#dworzec',
-    position: '-9 3.5 1',
+    buttonPosition: '-9 3.5 1',
+    textPosition: '-9 3.5 1',
     rotation: '0 110 0',
     content: `Szczecin Główny (German: Stettin Hauptbahnhof), (Polish for Szczecin main station) is the principal railway station of the city of Szczecin, in the West Pomeranian Voivodeship, Poland. The station opened on 15 August 1843 and is located on the Berlin-Szczecin railway, Wroclaw-Szczecin railway, Poznan-Szczecin railway, Bützow-Szczecin railway and Szczecin-Trzebież Szczeciński railway. The train services are operated by PKP, Przewozy Regionalne and Deutsche Bahn.
 
@@ -75,7 +103,8 @@ const configArray = [
   },
   {
     background: '#fontanna',
-    position: '-9 1 0',
+    buttonPosition: '-9 1 0',
+    textPosition: '-9 1 0',
     rotation: '0 90 0',
     content: `Chrobry Embankment (Polish: Wały Chrobrego), previously known as Haken Terrace (German: Hakenterrasse), is an observation deck in Szczecin, Poland. Located on an escarpment along the Oder river, it is 500 metre (546.8 yard) long and, together with National Museum, Ducal Castle and Cathedral Basilica of St James the Apostle, it forms an urban and architectural plan.
 
@@ -85,7 +114,8 @@ const configArray = [
   },
   {
     background: '#ratusz',
-    position: '-9 4 -1',
+    buttonPosition: '-9 4 -1',
+    textPosition: '-9 4 -1',
     rotation: '0 80 0',
     content: `Old Town Hall - Szczecin's History Museum
 
@@ -97,7 +127,8 @@ const configArray = [
   },
   {
     background: '#kWojciecha',
-    position: '-9 5 -2',
+    buttonPosition: '-9 5 -2',
+    textPosition: '-9 5 -2',
     rotation: '0 90 0',
     content: `St. Adalbert Church in Szczecin - a neo-Gothic hall church built between 1906-1909 according to a design by architect Jürgen Kröger. It currently serves as the Roman Catholic garrison church of the Szczecin-Kamień diocese. It is built of brick, with a massive, asymmetrically placed tower 65.5 meters high in its elevation. The style of the building is eclectic - mostly neo-Gothic, but neo-Romanesque motifs also appear, especially in the decoration. The building is 35 m long, 23 m wide, and 17 m high.
 
@@ -105,7 +136,8 @@ const configArray = [
   },
   {
     background: '#komenda',
-    position: '8 4 3',
+    buttonPosition: '8 4 3',
+    textPosition: '8 4 3',
     rotation: '0 240 0',
     content: `Voivodeship Police Headquarters
 
@@ -115,15 +147,17 @@ const configArray = [
   },
   {
     background: '#kotwica',
-    position: '-9 1 1,5',
+    buttonPosition: '-9 1 1,5',
+    textPosition: '-9 1 1,5',
     rotation: '0 90 0',
-    content: `Manzl's Fountain (also Sedina) - object consisting of a fountain basin designed by Otto Rieth and a non-existent figural composition by Ludwig Manzl, once located at Tobrucki Square, at the intersection of today's Dworcowa and Nowa Streets in Szczecin. Today, the site is occupied by the Anchor Monument.
+    content: `Manzl's Fountain (also Sedina) - object consisting of a fountain basin designed by Otto Rieth and a non-existent figural combuttonPosition by Ludwig Manzl, once located at Tobrucki Square, at the intersection of today's Dworcowa and Nowa Streets in Szczecin. Today, the site is occupied by the Anchor Monument.
 
     https://pl.wikipedia.org/wiki/Fontanna_Manzla `,
   },
   {
     background: '#poczta',
-    position: '17 5 -0.3',
+    buttonPosition: '17 5 -0.3',
+    textPosition: '17 5 -0.3',
     rotation: '0 270 0',
     content: `Post Office no. 2 - the Polish Post Office in Szczecin, located at Dworcowa Street in the New Town.
 
@@ -132,3 +166,4 @@ const configArray = [
     https://pl.wikipedia.org/wiki/Gmach_Urzędu_Pocztowego_nr_2_w_Szczecinie `,
   },
 ]
+ntSize = "6vw";

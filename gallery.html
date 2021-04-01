@@ -86,7 +86,7 @@
         animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
         animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
       </a-sky>
-      
+
       <!-- show / hide buttons -->
       <a-entity geometry="primitive:plane; height:1; width:1.5" material="color:red" position="0 5 -5"
         text__button_up="align: center; baseline:center; value: hide images; wrapCount: 10; font:dejavu"
@@ -108,6 +108,11 @@
         text__button_down="align: center; baseline:center; value: description; wrapCount: 12; font:dejavu"
         class="clickable description">
       </a-entity>
+
+      <!-- text -->
+
+      <a-entity geometry="primitive: plane; height: auto; width: 16" text="value: ;" class="text"
+        material="color: white; visible: false" position="0 0 -5" rotation="0 0 0"></a-entity>
 
       <!-- Image links. -->
       <a-entity id="images">
