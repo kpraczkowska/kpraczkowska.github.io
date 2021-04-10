@@ -9,8 +9,15 @@ const text = document.querySelector('.text');
 
 let isVisible = false;
 let textValue = '';
+const visible = 'color: white; visible: true';
+const invisible = 'color: white; visible: false';
 
 photos.forEach(photo => photo.addEventListener('click', () => {
+  if (isVisible) {
+    isVisible = false;
+    text.setAttribute('material', invisible);
+    text.setAttribute('text', 'value: ;');
+  };
   const imageSrc = photo.dataset.src;
   descriptionButton.setAttribute('material', 'color: black; visible: true');
   backgroundPhoto.setAttribute('src', imageSrc);
@@ -26,17 +33,16 @@ photos.forEach(photo => photo.addEventListener('click', () => {
 }))
 
 descriptionButton.addEventListener('click', () => {
-  const visible = 'color: white; visible: true';
-  const invisible = 'color: white; visible: false';
-  material = text.getAttribute('material');
-  if (isVisible) {
-    text.setAttribute('material', invisible)
+    const material = text.getAttribute('material');
+    if (isVisible) {
+    text.setAttribute('material', invisible);
     text.setAttribute('text', 'value: ;');
     isVisible = false;
-  } else {
-    text.setAttribute('material', visible);
-    text.setAttribute('text', textValue);
-    isVisible = true;
+    } else {
+      text.setAttribute('material', visible);
+      text.setAttribute('text', textValue);
+  //  text.setAttribute('geometry',"primitive: plane; height: auto; width: 16");
+      isVisible = true;
   };
 });
 
