@@ -5,7 +5,7 @@ const backgroundPhoto = document.getElementById('image-360');
 const descriptionButton = document.querySelector('.description');
 const text = document.querySelector('.text');
 
-// funkcja zmieniająca tło i pozycję przycisku description po kliknięciu w miniaturę zdj
+// funkcja zmieniająca tło i pozycję przycisku description po kliknięciu w miniaturę zdjęcia
 
 let isVisible = false;
 let textValue = '';
@@ -31,7 +31,6 @@ photos.forEach(photo => photo.addEventListener('click', () => {
     }
   });
 }))
-
 descriptionButton.addEventListener('click', () => {
     const material = text.getAttribute('material');
     if (isVisible) {
