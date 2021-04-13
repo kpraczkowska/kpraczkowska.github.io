@@ -27,8 +27,6 @@
   <a-scene>
     <a-assets>
       <img id="niebo" crossorigin="anonymous" src="ground/sky.jpg">
-      <img id="am" crossorigin="anonymous" src="zdj/am.JPG">
-      <img id="am-thumb" crossorigin="anonymous" src="miniatury/am.JPG">
       <img id="filharmonia" crossorigin="anonymous" src="zdj/filharmonia.JPG">
       <img id="filharmonia-thumb" crossorigin="anonymous" src="miniatury/filharmonia.JPG">
       <img id="waly" crossorigin="anonymous" src="zdj/waly.JPG">
@@ -36,23 +34,17 @@
       <img id="urzad" crossorigin="anonymous" src="zdj/urzad.JPG">
       <img id="urzad-thumb" crossorigin="anonymous" src="miniatury/urzad.JPG">
       <img id="bPortowa" crossorigin="anonymous" src="zdj/bPortowa.jpg">
-      <img id="bPortowa-thumb" crossorigin="anonymous" src="miniatury/bPortowa.JPG">
+      <img id="bPortowa-thumb" crossorigin="anonymous" src="miniatury/bPortowa.jpg">
       <img id="dworzec" crossorigin="anonymous" src="zdj/dworzec2.jpg">
       <img id="dworzec-thumb" crossorigin="anonymous" src="miniatury/dworzec2.jpg">
       <img id="fontanna" crossorigin="anonymous" src="zdj/fontanna.JPG">
       <img id="fontanna-thumb" crossorigin="anonymous" src="miniatury/fontanna.JPG">
-      <img id="JasneBlonia" crossorigin="anonymous" src="zdj/JasneBlonia.JPG">
-      <img id="JasneBlonia-thumb" crossorigin="anonymous" src="miniatury/JasneBlonia.JPG">
       <img id="kWojciecha" crossorigin="anonymous" src="zdj/k_wojciecha2.jpg">
       <img id="kWojciecha-thumb" crossorigin="anonymous" src="miniatury/k_wojciecha2.jpg">
       <img id="komenda" crossorigin="anonymous" src="zdj/komenda.JPG">
       <img id="komenda-thumb" crossorigin="anonymous" src="miniatury/komenda.JPG">
       <img id="kotwica" crossorigin="anonymous" src="zdj/kotwica.JPG">
       <img id="kotwica-thumb" crossorigin="anonymous" src="miniatury/kotwica.JPG">
-      <img id="ksiaznica" crossorigin="anonymous" src="zdj/ksiaznica2.jpg">
-      <img id="ksiaznica-thumb" crossorigin="anonymous" src="miniatury/ksiaznica2.jpg">
-      <img id="plOrla" crossorigin="anonymous" src="zdj/plOrla2.jpg">
-      <img id="plOrla-thumb" crossorigin="anonymous" src="miniatury/plOrla2.jpg">
       <img id="poczta" crossorigin="anonymous" src="zdj/poczta.JPG">
       <img id="poczta-thumb" crossorigin="anonymous" src="miniatury/poczta.jpg">
       <img id="katedra" crossorigin="anonymous" src="zdj/katedra.JPG">
@@ -86,7 +78,7 @@
       </a-sky>
 
       <!-- show / hide buttons -->
-      <a-entity geometry="primitive:plane; height:1; width:1.5" material="color:red" position="0 5 -5"
+      <a-entity id='hide-btn' geometry="primitive:plane; height:1; width:1.5" material="color:red" position="0 5 -5"
         text__button_up="align: center; baseline:center; value: hide images; wrapCount: 10; font:dejavu"
         event-set__up="_event:click; _target: #images; animation.property: position; animation.to: 1 1000 -3"
         class="clickable">
