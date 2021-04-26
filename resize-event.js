@@ -13,6 +13,7 @@ const visible = 'color: white; visible: true';
 const invisible = 'color: white; visible: false';
 
 photos.forEach(photo => photo.addEventListener('click', () => {
+  console.log(photo)
   if (isVisible) {
     isVisible = false;
     text.setAttribute('material', invisible);
