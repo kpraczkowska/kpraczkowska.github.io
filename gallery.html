@@ -10,8 +10,6 @@
   <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
   <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
   <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/index.min.js"></script>
-  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
 
   <!-- Image link template to be reused. -->
   <script id="link" type="text/html">
@@ -27,7 +25,6 @@
 <body>
   <a-scene>
     <a-assets>
-      <img id="niebo" crossorigin="anonymous" src="ground/sky.jpg">
       <img id="filharmonia" crossorigin="anonymous" src="zdj/filharmonia.JPG">
       <img id="filharmonia-thumb" crossorigin="anonymous" src="miniatury/filharmonia.JPG">
       <img id="waly" crossorigin="anonymous" src="zdj/waly.JPG">
@@ -52,12 +49,8 @@
       <img id="katedra-thumb" crossorigin="anonymous" src="miniatury/katedra.JPG">
       <img id="ratusz" crossorigin="anonymous" src="zdj/ratusz.JPG">
       <img id="ratusz-thumb" crossorigin="anonymous" src="miniatury/ratusz.JPG">
-
-
-      <audio id="click-sound" crossorigin="anonymous"
-        src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+      <img id="plOrla" crossorigin="anonymous" src="zdj/plOrla2.jpg">
     </a-assets>
-
 
 
     <a-entity id="cameraRig" position="0 0 0">
@@ -71,39 +64,45 @@
 
       <a-entity id="ctlL" raycaster="objects: .clickable; far:1.5;" laser-controls="hand: left"></a-entity>
       <a-entity id="ctlR" raycaster="objects: .clickable; far:1.5;" laser-controls="hand: right"></a-entity>
+    </a-entity>
 
       <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="80" src="#niebo"
+      <a-sky id="image-360" radius="80" src="#plOrla"
         animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
         animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
       </a-sky>
 
       <!-- show / hide buttons -->
-      <a-entity id='hide-btn' geometry="primitive:plane; height:1; width:1.5" material="color:red" position="0 5 -5"
-        text__button_up="align: center; baseline:center; value: hide images; wrapCount: 10; font:dejavu"
-        event-set__up="_event:click; _target: #images; animation.property: position; animation.to: 1 1000 -3"
+      <a-entity id='hide-btn' geometry="primitive:circle; radius:0.5" material="color:#ffae00" position="0 5 -5"
+        text__button_up="align: center; baseline:center; value: hide images; wrapCount: 7; font:dejavu; color:black"
+        event-set__up="_event:click; _target: #images,#plane; animation.property: position; animation.to: 1 28 -3"
         class="clickable">
       </a-entity>
 
-      <a-entity id='show-btn' geometry="primitive:circle; radius:0.5" material="color:blue" position="1.5 5 -5"
-        text__button_down="align: center; baseline:center; value: show images; wrapCount: 7; font:dejavu"
-        event-set__down="_event:click; _target: #images; animation.property: position; animation.to: 0 0 0"
+      <a-entity id='show-btn' geometry="primitive:circle; radius:0.5" material="color:#00d9ff" position="1.5 5 -5"
+        text__button_down="align: center; baseline:center; value: show images; wrapCount: 7; font:dejavu; color:black"
+        event-set__down="_event:click; _target: #images,#plane; animation.property: position; animation.to: -10.25 5.25 -10.5"
         class="clickable">
       </a-entity>
 
       <!-- show / hide description button -->
 
-      <a-entity geometry="primitive:circle; radius:0.5" material="color:black; visible: false" position="0 0 0"
+      <a-entity geometry="primitive:circle; radius:0.6" material="color:black; visible: false; depthTest: false" position="0 0 0"
         rotation="0 0 0"
         event-set__down="_event:click; _target: #images; animation.property: position; animation.to: 0 0 0"
-        text__button_down="align: center; baseline:center; value: description; wrapCount: 12; font:dejavu"
+        text=""
         class="clickable description">
       </a-entity>
+
+      <!-- thumbs plane -->
+      <a-entity id='plane' geometry="primitive:plane; height:10; width:15" material="color:#ccccff; visible: true; depthTest: false" position="-10.25 5.25 -10.5" rotation="0 0 0" class="plane" event-set__down="_event:click; _target: #plane; animation.property: position; animation.to: 0 0 0">
+      </a-entity>
+   
 
       <!-- text -->
 
       <a-entity geometry="primitive: plane; height: auto; width: 16" text="value: ;" class="text"
-        material="color: white; visible: false" position="0 0 -5" rotation="0 0 0"></a-entity>
+        material="color: white; visible: false; depthTest: false" position="0 0 -5" rotation="0 0 0" ></a-entity>
 
       <!-- Image links. -->
       <a-entity id="images">
