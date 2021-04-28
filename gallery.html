@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>360&deg; Image Gallery</title>
   <meta name="description" content="360&deg; Image Gallery - A-Frame">
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
   <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
   <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
@@ -81,25 +81,26 @@
 
       <a-entity id='show-btn' geometry="primitive:circle; radius:0.5" material="color:#FFCC00" position="1.5 5 -5"
         text__button_down="align: center; baseline:center; value: show images; wrapCount: 7; font:dejavu; color:black"
-        event-set__down="_event:click; _target: #plane; animation.property: position; animation.to: -10.25 5.25 -10.5"
-        event-set__d="_event:click; _target: #images; animation.property: position; animation.to: 0 0 0"
+        event-set__plane="_event:click; _target: #plane; animation.property: position; animation.to: -10.25 5.25 -10.5"
+        event-set__images="_event:click; _target: #images; animation.property: position; animation.to: 0 0 0"
         class="clickable">
       </a-entity>
 
       <!-- show / hide description button -->
 
       <a-entity geometry="primitive:circle; radius:0.8" material="color:black; visible: false; depthTest: false" position="0 0 0"
-        rotation="0 0 0" text="" class="clickable description">
+        rotation="0 0 0" text="" class="clickable description" event-set__images="_event:click; _target: #images, #plane; animation.property: position; animation.to: 1 28 -3" >
       </a-entity>
 
       <!-- thumbs plane -->
-      <a-entity id='plane' geometry="primitive:plane; height:10; width:15" material="color:#CCCCFF; visible: true; depthTest: false" position="-10.25 5.25 -10.5">
+      <a-entity id='plane' geometry="primitive:plane; height:10; width:15" material="color:#CCCCFF; visible: true; depthTest: false" position="-10.25 5.25 -10.5" event-set__d="_event:click; _target: #images; animation.property: position; animation.to: 0 0 0"
+      >
       </a-entity>
    
 
       <!-- text -->
       <a-entity geometry="primitive: plane; height: auto; width: 13" text="value: ; align: center" class="text"
-        material="color: white; visible: false; depthTest: false" position="0 0 -20" rotation="0 0 0" ></a-entity>
+        material="color: white; visible: false; depthTest: false" position="0 28 -20" rotation="0 0 0" ></a-entity>
 
       <!-- Image links. -->
       <a-entity id="images">
