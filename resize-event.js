@@ -126,9 +126,9 @@ const configArray = [
   {
     background: '#komenda',
     buttonPosition: '8 4 3',
-    textPosition: '19 3 7',
-    buttonRotation: '0 240 0',
-    textRotation: '0 240 0',
+    textPosition: '15 2 6',
+    buttonRotation: '0 245 0',
+    textRotation: '0 245 0',
     content: `Voivodeship Police Headquarters
     The headquarters is located at 47 Malopolska Street, in the central part of the city, in the Old Town, near to the Mieczyslaw Karlowicz Philharmonic. The design of the neo-Gothic building was made by building advisor Rösener. In June 1902 the construction work began.  Construction was completed in October 1905. Chrobry Embankment is located a few dozen meters from the headquarters.` ,
   },
@@ -143,7 +143,7 @@ const configArray = [
   {
     background: '#poczta',
     buttonPosition: '13 5 -0.3',
-    textPosition: '23 1 0.3',
+    textPosition: '17 1 0.3',
     buttonRotation: '0 270 0',
     textRotation: ' 0 270 0',
     content: `Post Office no. 2 - the Polish Post Office in Szczecin, located at Dworcowa Street in the New Town.
