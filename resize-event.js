@@ -87,7 +87,7 @@ const configArray = [
   {
     background: '#bPortowa',
     buttonPosition: '10 4.5 -0.4',
-    textPosition: '16 2 -0.5',
+    textPosition: '15.5 2 -0.5',
     buttonRotation: '0 270 0',
     textRotation:'0 270 0',
     content: `Port Gate, German hist. Berliner Tor (Berlin Gate)\n - one of the city gates of Szczecin, built in Baroque style between 1725-1727 according to the design of Dutch fortification designer Gerhard Cornelius van Wallrawe (author of the reconstruction of the Kłodzko and Magdeburg Fortresses). Currently, a chamber theater is located inside the Gate. It is one of the two gates (besides the Royal Gate) preserved to this day, being a remnant of the old Prussian fortifications.`,
