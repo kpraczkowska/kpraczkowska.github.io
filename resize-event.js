@@ -148,7 +148,7 @@ const configArray = [
     textPosition: '17 1 0.3',
     buttonRotation: '0 270 0',
     textRotation: ' 0 270 0',
-    content: `Post Office no. 2\n The Polish Post Office in Szczecin, located at Dworcowa Street in the New Town.\n
+    content: `Post Office no. 2\n The Polish Post Office in Szczecin, located at Dworcowa Street in the New Town.
     The building is made of red brick, in neo-Gothic style. In the upper parts of the elevation, there are tympanums topped with horse heads, and eagles in window lintels. The lobby of the first post office building has a glass roof and a ceiling supported by columns.`,
   },
 ]
